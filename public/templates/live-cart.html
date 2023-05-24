@@ -1,0 +1,54 @@
+<div class="col-md-5 pull-right">
+
+	<receipt
+		ng-show="liveCart.products.length" 
+		transaction="liveCart">
+	</receipt>
+
+	<div ng-hide="liveCart.products.length" style="margin: 0 auto; float: none;">
+		<div class="alert alert-warning text-center" role="alert">
+		  <strong>Inactive</strong> No items added at the current moment.
+		</div>
+	</div>
+
+</div>
+
+<div class="col-md-5 pull-left">
+
+	<div class="panel panel-default">
+		
+		<div class="panel-heading lead text-center">
+			Recent Transactions
+		</div>
+
+		<div class="panel-body">
+
+			<div class="text-center">
+				<span>Today's Sales</span> 
+				<br/>
+				<span class="text-success checkout-total-price">
+					$<span odometer="dayTotal"></span>
+				</span>
+			</div>
+			
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="transaction in recentTransactions">
+						<td class="col-md-2"> 
+							<a href="#/transaction/{{ transaction._id }}">{{ transaction.date | date:'short' }}</a>
+						</td>
+						<td class="col-md-2"> {{ transaction.total | currency }} </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</div>

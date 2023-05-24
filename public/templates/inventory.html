@@ -1,0 +1,38 @@
+
+<div class="container">
+	
+	<a href="#/inventory/create-product" class="btn btn-success pull-right">
+		<i class="glyphicon glyphicon-plus"></i> Add New Item
+	</a>
+	<br/><br/>
+
+	<table class="table table-responsive table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Quantity on Hand</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="product in inventory">
+				<td> 
+					<a href="" ng-click="editProduct(product._id)">
+						{{ product.name }} 
+					</a>
+				</td>
+				<td> {{ product.price |  currency:"$ "}} </td>
+				<td> {{ product.quantity_on_hand }} </td>
+				<td> 
+					<a class="btn btn-info" ng-click="editProduct(product._id)">
+						<i class="glyphicon glyphicon-pencil"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div ng-if="inventory.length === 0">No products found.</div>
+
+</div>

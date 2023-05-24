@@ -1,0 +1,58 @@
+<div>
+  
+  <div class="panel panel-primary">
+    
+    <div class="panel-heading text-center lead">{{ transaction.date || backupDate | date:'medium' }}</div>
+    
+    <table class="receipt table table-hover">
+        <thead>
+          <tr class="small">
+            <th> Quantity </th>
+            <th> Product </th>
+            <th> Price </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in transaction.products">
+            <td> {{ product.quantity }} </td>
+            <td> 
+              <a href="#/inventory/product/{{ product._id }}"> 
+                {{ product.name }} 
+              </a> 
+            </td>
+            <td> 
+              <span>
+                {{ ( product.price * product.quantity ) | currency }} 
+              </span>
+              <br/> 
+              <small class="small-text"><em>({{ product.price | currency }} each)</em></small>
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <td></td>
+            <td>Tax</td>
+            <td> {{ transaction.total_tax | currency }} </td>
+          </tr>
+          <tr class="total">
+            <td></td>
+            <td>Total</td>
+            <td> {{ transaction.total | currency }} </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Payment</td>
+            <td> {{ transaction.payment | currency }} </td>
+          </tr>
+          <tr class="lead">
+            <td></td>
+            <td>Change</td>
+            <td> {{ transaction.payment - transaction.total | currency }} </td>
+          </tr>
+        </tbody>
+
+      </table>
+  </div>
+</div>
