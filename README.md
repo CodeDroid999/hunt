@@ -6,11 +6,6 @@ A simple, beautiful, & real-time Point of Sale system written in Node.js & Angul
 
 Open Source: MIT Licensed.
 
-##### [See Screenshots](#screenshots)
-
-<h3 align="center">
-<img src="https://raw.githubusercontent.com/afaqurk/screenshots/master/hunts-point-pos/home-page.png" width="70%" align="center">
-</h3>
 
 # Quick Start
 
